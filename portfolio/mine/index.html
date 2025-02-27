@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ерсұлтан</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            background-color: #0d1117;
+            color: #d0d5c2;
+            
+        }
+
+        .navbar {
+            
+            background-color: #161b22;
+            padding: 20px 50px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #a72b2b;
+            margin-right: 350px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #a72b2b;
+            font-size: 1.3rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #0c407c;
+            transform: scale(1.1);
+        }
+
+        .home, .about, .skills, .achievements, .future-job, .wishes {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .home, .about, .achievements, .skills, .future-job, .wishes {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .achievements {
+            background-color: #161b22;
+            border-radius: 15px;
+            margin: 40px auto;
+            width: 80%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill {
+            margin: 20px auto;
+            width: 50%;
+            text-align: left;
+        }
+
+        .progress {
+            background-color: #2d333b;
+            border-radius: 5px;
+            height: 20px;
+            width: 100%;
+        }
+
+        .progress-bar {
+            background-color: #a72b2b;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .wishes {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #161b22, #1c2128);
+            border-radius: 15px;
+            margin: 40px auto;
+            width: 80%;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .wishes h2 {
+            font-size: 2rem;
+            color: #a72b2b;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .wish-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .wish-card {
+            background: #0d1117;
+            color: #c9d1d9;
+            border-radius: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+           
+        }
+
+        .wish-card span {
+            font-size: 2.5rem;
+        }
+
+        .wish-card h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #a72b2b;
+        }
+
+        .wish-card p {
+            font-size: 1rem;
+            
+        }
+
+        .wish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px #a72b2b;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+
+        .youtube-btn {
+            background: #ff0000;
+            color: white;
+            box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.4);
+        }
+
+        .youtube-btn:hover {
+            background: #cc0000;
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(255, 0, 0, 0.6);
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #fccc63, #e1306c, #833ab4);
+            color: white;
+            box-shadow: 0px 4px 10px rgba(225, 48, 108, 0.4);
+        }
+
+        .instagram-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(225, 48, 108, 0.6);
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 25px;
+            background: #161b22;
+        }
+
+        footer a {
+            padding: 12px 18px;
+            background: #953731;
+            color: white;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        footer a:hover {
+            background: #8e1c1c;
+            transform: scale(1.1);
+        }
+
+     
+        .future-job {
+            background-color: #161b22;
+            border-radius: 15px;
+            margin: 40px auto;
+            width: 80%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .future-job h2 {
+            color: #a72b2b;
+            margin-bottom: 30px;
+        }
+
+        .job-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .job-card {
+            background: #0d1117;
+            color: #c9d1d9;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .job-card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .job-card h3 {
+            font-size: 1.5rem;
+            color: #a72b2b;
+            margin-bottom: 10px;
+        }
+
+        .job-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px #a72b2b;
+        }
+
+        .gg{
+            display: flex;
+            height: 90px;
+            width: 90px;
+            
+        }
+
+
+
+
+        
+       
+    </style>
+</head>
+<body>
+   
+    <nav class="navbar">
+        <h1 class="gg"><img src="https://img.hhcdn.ru/employer-logo/2410370.png" alt=""></h1>
+        <h2 class="logo"> Махкамбаев Ерсұлтан</h2>
+        <ul class="nav-links">
+            <li><a href="#about">Мен туралы</a></li>
+            <li><a href="#skills">Дағдылар</a></li>
+            <li><a href="#future-job">Болашақ мамандығым</a></li>
+            <li><a href="#achievements">Жетістіктер</a></li>
+        </ul>
+    </nav>
+
+    <section class="home text-center">
+        <img src="https://i.postimg.cc/RCPczpJZ/2025-02-08-101838.png"  
+             class="mx-auto d-block" 
+             style="width: 50%; max-width: 300px; border-radius: 30px; margin-top: 20px;" 
+             alt="Махкамбаев Ерсұлтан">
+        <h1>____________</h1>
+        <h5>Сәлем! Менің атым Ерсұлтан Махкамбаев, мен (Алматы) мектебінің 10-сыныбында оқимын.</h5>
+    </section>
+
+    <section id="about" class="about">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="dff" src="https://i.postimg.cc/pX1Vx4Hk/images.jpg" class="d-block w-50 mx-auto" alt="НЗФМ">
+                </div>
+            </div>
+        </div>
+        <h1>_____________</h1>
+        <h2>Менің тарихым</h2>
+        <h5>
+            Мен 2008 жылы 4 қарашада Алматы қаласында дүниеге келдім. 7 жасымдан бастап кёкушинкай каратэмен айналыса бастадым. Мектепте менің сүйікті пәндерім ағылшын тілі мен математика болды. 10 жасымда ағылшын тіліндегі деңгейім intermediate деңгейіне жетіп, алғаш рет Қазақстан чемпионы атандым. Кейін РФММ және НИШ мектептеріне дайындала бастадым. 7-сыныпта Астана РФМШ мектебінде оқыдым, ал келесі жылы Алматы РФМШ-ға көшіп келдім.
+        </h5>
+    </section>
+
+    <section class="home text-center">
+        <img src="https://i.postimg.cc/7ZSGbKh7/aa.jpg"  
+             class="mx-auto d-block" 
+             style="width: 300px; height: auto; border-radius: 30px; margin-top: 20px;" 
+             alt="Махкамбаев Ерсұлтан">
+        <h1>____________</h1>
+    </section>
+
+   
+    
+
+    <section id="achievements" class="achievements">
+        <h5>Жетістіктер</h5>
+        <ul>
+            <H4><li>🏆 Халықаралық турнирдің күміс жүлдегері (кёкушинкай каратэ)</li>
+                <li>🏆 Қазақстан чемпионы (2 рет, кёкушинкай каратэ)</li>
+                <li>🏆 Алматы чемпионы (5 рет, кёкушинкай каратэ)</li>
+                <li>🏆 Оңтүстік Қазақстан чемпионы (3 рет, кёкушинкай каратэ)</li>
+                <li>🏆 Аймақтық чемпион (10 рет, кёкушинкай каратэ)</li>
+                <li>📜 Жапония чемпионатында Қазақстан ұлттық құрамасын ұсынды</li>
+                <li>🥋 Кёкушинкай каратэдан спорт шеберінің кандидаты (КМС)</li>
+                <li>🎖️ Science technology Algorithmizatian Programing халықаралық турнирінің 3-ші орыны</li>
+                <li>📜 шамамен 100 сағат волонтерлік жұмыс</li></H4>
+        </ul>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skill">
+            <p>Ағылшын тілі <span>90%</span></p>
+            <div class="progress"><div class="progress-bar" style="width: 90%;"></div></div>
+        </div>
+        <div class="skill">
+            <p>Кёкушинкай каратэ <span>99%</span></p>
+            <div class="progress"><div class="progress-bar" style="width: 99%;"></div></div>
+        </div>
+        <div class="skill">
+            <p>HTML & CSS <span>80%</span></p>
+            <div class="progress"><div class="progress-bar" style="width: 80%;"></div></div>
+        </div>
+        <div class="skill">
+            <p>C++ <span>45%</span></p>
+            <div class="progress"><div class="progress-bar" style="width: 45%;"></div></div>
+        </div>
+        <div class="skill">
+            <p>Үстел теннисі <span>75%</span></p>
+            <div class="progress"><div class="progress-bar" style="width: 75%;"></div></div>
+        </div>
+        <div class="skill">
+            <p>Баскетбол <span>70%</span></p>
+            <div class="progress"><div class="progress-bar" style="width: 70%;"></div></div>
+        </div>
+        <div class="skill">
+            <p>Компьютерлік ойындар <span>80%</span></p>
+            <div class="progress"><div class="progress-bar" style="width: 80%;"></div></div>
+        </div>
+    </section>
+
+
+
+    <section id="future-job" class="future-job">
+        <h2>Менің болашақ мамандығым</h2>
+        <div class="job-container">
+            <div class="job-card">
+                <img src="https://i.postimg.cc/65VVmVx9/aerospace-prototype-aircraft.jpg" alt="Инженер">
+                <h3>aerospace-engineer</h3>
+                <p>Мен ғарышты зерттеуге және жаңа технологияларды дамытуға ұмтыламын, осылайша атымды тарихта қалдыруды мақсат етемін. Бұл – менің ең ұлы мақсатым.</p>
+            </div>
+            <div class="job-card">
+                <img src="https://i.postimg.cc/nLh17X5n/cockpit1-1024x582.webp" alt="Data Scientist">
+                <h3>Pilot</h3>
+                <p>Мен болашақта ұшқыш болуды армандаймын. Аспанда еркін ұшып, әлемді жоғарыдан көру менің арманым.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="wishes" class="wishes">
+        <h2>✨ Менің тілектерім ✨</h2>
+        <div class="wish-container">
+            <div class="wish-card">
+                <span>🥋</span>
+                <h3>Әлем чемпионы болу</h3>
+                <p>Кёкушинкай каратэден әлем чемпионы болып, елімді ең жоғары деңгейде ұсыну.</p>
+            </div>
+            <div class="wish-card">
+                <span>🎓</span>
+                <h3>Үздік университет</h3>
+                <p>Технология саласында маман болу үшін үздік университетке түсу.</p>
+            </div>
+            <div class="wish-card">
+                <span>✨</span>
+                <h3>IELTS, SAT</h3>
+                <p>IELTS-тен 8.0 және SAT-тен 1550 балл жинау.</p>
+            </div>
+            <div class="wish-card">
+                <span>✈️</span>
+                <h3>Әлемді саяхаттау</h3>
+                <p>Әр түрлі мәдениеттерді зерттеп, жаңа адамдармен танысу және өмірге жаңа көзқарас қалыптастыру.</p>
+            </div>
+            <div class="wish-card">
+                <span>🤑</span>
+                <h3>Бизнес</h3>
+                <p>Өз бизнесімді құрып, Forbes тізіміне ену.</p>
+            </div>
+            <div class="wish-card">
+                <span>😇</span>
+                <h3>Бақыт</h3>
+                <p>Ата-анам мен туғандарымды жетістіктеріммен бақытты ету.</p>
+            </div>
+            <div class="wish-card">
+                <span>🫡</span>
+                <h3>Әлемдік мәселелерді шешу</h3>
+                <p>Әлемдік мәселелерді шешуге көмектесетін технологиялар жасау.</p>
+            </div>
+            <div class="wish-card">
+                <span>🫂</span>
+                <h3>Дос</h3>
+                <p>Сенімді дос болу.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@%D0%95%D1%80%D1%81%D1%83%D0%BB%D1%82%D0%B0%D0%BD%D0%9C%D0%B0%D1%85%D0%BA%D0%B0%D0%BC%D0%B1%D0%B0%D0%B5%D0%B2-%D1%893%D0%BB" target="_blank" class="btn youtube-btn">
+                🎬 YouTube
+            </a>
+            <a href="https://www.instagram.com/yersultan.wade/" target="_blank" class="btn instagram-btn">
+                📸 Instagram
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('.home, .about, .skills, .achievements, .wishes, .future-job');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(section => observer.observe(section));
+
+
+
+        
+    </script>
+</body>
+</html>
